@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {BudgetService} from "./services/budget.service";
+import {DepartmentModel} from "./models/Department.model";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'budget_tree';
+
+
 }

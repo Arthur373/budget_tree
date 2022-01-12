@@ -1,0 +1,8 @@
+        let uniqBudget = budgets.map(budget => budget.department_nm);
+       let departmentNames = Array.from(new Set(uniqBudget));
+
+       let departments:DepartmentModel[] = []
+
+       departmentNames.filter(departmentName => {
+         budgets.find(budget => budget.department_nm == departmentName)
+       });
