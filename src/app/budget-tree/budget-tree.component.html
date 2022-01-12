@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="header">
+    <nav>
+      <ul>
+        <li><a href="javascript:void(0);" (click)="toggleDepartment()">Department</a> /</li>
+        <li><a href="javascript:void(0);" (click)="toggleGroup()"> Group</a> /</li>
+        <li><a href="javascript:void(0);" (click)="toggleCategory()"> Category</a> /</li>
+        <li><a href="javascript:void(0);" (click)="toggleSubCategory()"> Sub-Category</a></li>
+      </ul>
+    </nav>
+
+    <div>
+      <h4>Budgeted</h4>
+    </div>
+  </div>
+  <div class="content">
+    <ul id="myUL" *ngIf="departments.length > 0">
+      <div>
+        <li *ngFor="let department of departments">
+          <div class="sub">
+            <span class="caret" (click)="department.isActive = !department.isActive" upDown>{{ department.department_nm }}</span>
+            <span>{{ department.current_department_am }}</span>
+          </div>
+
+
+          <div *ngIf="department.isActive">
+            <ul class="nested">
+              <div>
+                <li *ngFor="let group of department.groups">
+                  <div  class="sub">
+                    <span class="caret" (click)="group.isActive = !group.isActive" upDown>{{ group.group_nm }}</span>
+                    <span>{{ group.current_group_am }}</span>
+                  </div>
+
+                  <div *ngIf="group.isActive">
+                    <ul class="nested">
+                      <div>
+                        <li *ngFor="let category of group.categories">
+                          <div  class="sub">
+                            <span class="caret" (click)="category.isActive = !category.isActive" upDown>{{ category.category_nm }}</span>
+                            <span>{{ category.current_cat_am }}</span>
+                          </div>
+                          <div *ngIf="category.isActive">
+                            <ul class="nested">
+                              <li *ngFor="let subCategory of category.subCategories">
+                                <div class="sub">
+                                  <span>{{ subCategory.sub_cat_nm }}</span>
+                                  <span>{{ subCategory.current_sub_cat_am }}</span>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                      </div>
+
+                    </ul>
+                  </div>
+
+
+                </li>
+              </div>
+
+
+            </ul>
+          </div>
+
+        </li>
+      </div>
+
+    </ul>
+
+  </div>
+</div>
+
